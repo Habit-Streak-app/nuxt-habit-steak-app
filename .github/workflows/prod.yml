@@ -1,0 +1,26 @@
+name: SSH Command Execution
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  execute-ssh-commands:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Execute SSH commands
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: www.habit-streak.app
+        username: root
+        key: ${{secrets.SSH_KEY}}
+        script: |
+          cd /var/www/app
+          git pull
+          bun install
+          bun run prod
