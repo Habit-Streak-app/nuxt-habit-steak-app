@@ -60,7 +60,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="ml-4 md:ml-8 place-self-center lg:col-span-8">
+				<div class="mr-auto place-self-center lg:col-span-8">
 					<h1 class="max-w-2xl text-white mb-4 text-2xl font-extrabold leading-none lg:text-4xl">
 						Habit Streak - by Jonathan Martz</h1>
 					<p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
