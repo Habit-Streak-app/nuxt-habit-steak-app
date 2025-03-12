@@ -11,4 +11,15 @@ onMounted(() => {
   }).catch((error) => {
     console.error('Service Worker registration failed:', error);
   });
+  useHead({
+    title: 'Habit-Streak.app',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'description', content: 'Habit-Streak.app - By Jonathan Martz | Aus der Idee von Kevin Chromik wird eine Web App oder auch PWA gemacht.' }
+    ],
+    link: [
+      { rel: 'icon', type: 'image/png', href: '/habit-streak-app-symbol.png' }
+    ]
+  });
 });</script>
