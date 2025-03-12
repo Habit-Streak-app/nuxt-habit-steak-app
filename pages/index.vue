@@ -3,14 +3,14 @@
 		<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 bg-gray-400">
 			<div class="mr-auto place-self-center lg:col-span-8 lg:px-12 my-12 lg:my-3">
 				<h1
-					class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none lg:text-4xl dark:text-white">
+					class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none lg:text-4xl">
 					Streak - by Kevin Chromik</h1>
-				<p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+				<p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
 					Die Idee einer App zum Habit Tracker - Streak kommt von Kevin Chromik einem deutschen Youtuber.
 				</p>
 				<section class="space-x-3 actions">
 					<a href="#"
-						class="inline-flex btn w-full sm:w-auto btn-sm btn-primary items-center justify-center px-5 py-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+						class="inline-flex btn w-full sm:w-auto btn-sm btn-primary items-center justify-center px-5 py-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
 						<Fa :icon="faGithub" :class="{
 							'fa-lg': mobile
 						}" color="white"></Fa>
@@ -22,7 +22,7 @@
 						</span>
 					</a>
 					<a href="https://streak.kevinchromik.de/" target="_blank"
-						class="inline-flex btn btn-sm w-full sm:w-auto mt-3 sm:mt-0 btn-block btn-secondary items-center justify-center px-5 py-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+						class="inline-flex btn btn-sm w-full sm:w-auto mt-3 sm:mt-0 btn-block btn-secondary items-center justify-center px-5 py-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
 						<Fa :icon="faLink" :class="{
 							'fa-lg': mobile
 						}" color="white"></Fa>
@@ -37,21 +37,21 @@
 			</div>
 			<div class="lg:mt-0 lg:col-span-4 lg:flex">
 				<div
-					class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
+					class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
 					<div
-						class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg">
+						class="h-[32px] w-[3px] bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg">
 					</div>
 					<div
-						class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg">
+						class="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg">
 					</div>
 					<div
-						class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg">
+						class="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg">
 					</div>
 					<div
-						class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg">
+						class="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg">
 					</div>
 					<div
-						class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800 flex justify-center items-center">
+						class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white flex justify-center items-center">
 						<img src="https://streak.kevinchromik.de/assets/app_icon.png" class="w-32 h-32" alt="">
 					</div>
 				</div>
@@ -62,21 +62,17 @@
 			<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 bg-gray-400">
 				<div class="lg:mt-0 lg:col-span-4 lg:flex lg:px-12 my-12 lg:my-3">
 					<div
-						class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-						<div
-							class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg">
+						class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
+						<div class="h-[32px] w-[3px] bg-gray-800  absolute -start-[17px] top-[72px] rounded-s-lg">
+						</div>
+						<div class="h-[46px] w-[3px] bg-gray-800  absolute -start-[17px] top-[124px] rounded-s-lg">
+						</div>
+						<div class="h-[46px] w-[3px] bg-gray-800  absolute -start-[17px] top-[178px] rounded-s-lg">
+						</div>
+						<div class="h-[64px] w-[3px] bg-gray-800  absolute -end-[17px] top-[142px] rounded-e-lg">
 						</div>
 						<div
-							class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg">
-						</div>
-						<div
-							class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg">
-						</div>
-						<div
-							class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg">
-						</div>
-						<div
-							class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800 flex justify-center items-center">
+							class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white flex justify-center items-center">
 							<img src="/habit-streak-app-symbol.svg" class="w-32 h-32" alt="">
 						</div>
 					</div>
@@ -89,29 +85,29 @@
 					</p>
 					<section class="actions space-x-3">
 						<a href="#"
-						class="inline-flex btn btn-sm btn-primary w-full sm:w-auto items-center justify-center px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-						<Fa :icon="faGithub" :class="{
-							'fa-lg': mobile
-						}" color="white"></Fa>
-						<span class="ml-3 text-white" :class="{
-							'btn-sm': mobile,
-							'text-xs': mobile
-						}">
-							Github Code
-						</span>
-					</a>
-					<a href="https://www.habit-streak.app/"
-						class="inline-flex btn btn-sm btn-secondary w-full sm:w-auto mt-3 sm:mt-0 items-center justify-center px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-						<Fa :icon="faLink" :class="{
-							'fa-lg': mobile
-						}" color="white"></Fa>
-						<span class="ml-3 text-white" :class="{
-							'btn-sm': mobile,
-							'text-xs': mobile
-						}">
-							Zur Webseite
-						</span>
-					</a>
+							class="inline-flex btn btn-sm btn-primary w-full sm:w-auto items-center justify-center px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+							<Fa :icon="faGithub" :class="{
+								'fa-lg': mobile
+							}" color="white"></Fa>
+							<span class="ml-3 text-white" :class="{
+								'btn-sm': mobile,
+								'text-xs': mobile
+							}">
+								Github Code
+							</span>
+						</a>
+						<a href="https://www.habit-streak.app/"
+							class="inline-flex btn btn-sm btn-secondary w-full sm:w-auto mt-3 sm:mt-0 items-center justify-center px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+							<Fa :icon="faLink" :class="{
+								'fa-lg': mobile
+							}" color="white"></Fa>
+							<span class="ml-3 text-white" :class="{
+								'btn-sm': mobile,
+								'text-xs': mobile
+							}">
+								Zur Webseite
+							</span>
+						</a>
 					</section>
 				</div>
 			</div>
@@ -129,7 +125,7 @@ const handleResize = () => {
 	mobile.value = window.innerWidth < 768;
 }
 
-onMounted(()=>{
+onMounted(() => {
 	window.addEventListener('resize', handleResize);
 	handleResize()
 });
