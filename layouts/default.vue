@@ -10,16 +10,13 @@
         </main>
         <footer class="bg-gray-400 py-3 px-3 lg:px-0">
             <section class="grid grid-cols-6 gap-3">
-                <div class="col-span-6 md:col-span-2 text-center text-sm">
+                <div class="col-span-6 md:col-span-3 text-center text-sm">
                     <a href="/data-privacy" class="text-blue-500">Datenschutz</a> & <a href="/impressum"
                         class="text-blue-500 text-sm">Impressum</a>
                 </div>
-                <div class="col-span-6 md:col-span-2 text-center text-sm">
+                <div class="col-span-6 md:col-span-3 text-center text-sm">
                     <Fa :icon="faCopyright" class="w-5" color="white" />
-                    <span class="text-white">Made with Passion by Jonathan Martz</span>
-                </div>
-                <div class="col-span-6 md:col-span-2 text-center">
-                    Was könnte hier noch stehen ?
+                    <span class="text-white">Made with Passion by <a href="https://www.jonathan-martz.de" target="_blank" class="text-[#1f6fed]">Jonathan Martz</a></span>
                 </div>
             </section>
         </footer>

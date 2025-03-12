@@ -20,7 +20,6 @@ onMounted(() => {
       { name: 'description', content: 'Habit-Streak.app - By Jonathan Martz | Aus der Idee von Kevin Chromik wird eine Web App oder auch PWA gemacht.' }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: '/habit-streak-app-symbol.png' },
       { rel: 'manifest', href: '/manifest.webmanifest' }
     ]
   });
