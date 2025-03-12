@@ -1,0 +1,16 @@
+{
+    "name": "Habit-Streak.app",
+    "short_name": "Habit-Streak",
+    "description": "Habit-Streak.app - By Jonathan Martz | Aus der Idee von Kevin Chromik wird eine Web App oder auch PWA gemacht.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000",
+    "theme_color": "#1f6fed",
+    "icons": [
+      {
+        "src": "/habit-streak-app-symbol.svg",
+        "sizes": "512x512",
+        "type": "image/svg+xml"
+      }
+    ]
+  }
