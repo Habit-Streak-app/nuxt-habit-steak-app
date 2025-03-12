@@ -19,9 +19,7 @@
                     <span class="text-white">Made with Passion by Jonathan Martz</span>
                 </div>
                 <div class="col-span-6 md:col-span-2 text-center">
-                    Idea by <a href="https://kevinchromik.de/" target="_blank" class="text-red-600">
-                        Kevin Chromik
-                    </a>
+                    Was könnte hier noch stehen ?
                 </div>
             </section>
         </footer>
