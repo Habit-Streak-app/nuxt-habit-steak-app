@@ -3,7 +3,8 @@
 		<section>
 			<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
 				<div class="mr-auto place-self-center lg:col-span-8 lg:px-12 my-12 lg:my-3">
-					<h1 class="max-w-2xl mb-4 text-2xl text-white font-extrabold tracking-tight leading-none lg:text-4xl">
+					<h1
+						class="max-w-2xl mb-4 text-2xl text-white font-extrabold tracking-tight leading-none lg:text-4xl">
 						Streak - by Kevin Chromik</h1>
 					<p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
 						Die Idee einer App zum Habit Tracker - Streak kommt von Kevin Chromik einem deutschen Youtuber
@@ -65,9 +66,8 @@
 						Habit Streak - by Jonathan Martz</h1>
 					<p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
 						Die Idee von Jonathan ist eine App für Habits ähnlich wie die von Kevin nur als Web App oder
-						auch PWA.
-						Jonathan ist ein Webentwickler aus der nähe von Köln der sich mit dem Thema Webentwicklung
-						auseinander setzt.
+						auch PWA. Jonathan ist ein Webentwickler aus der Nähe von Köln der sich mit dem Thema
+						Webentwicklung auseinander setzt.
 					</p>
 					<section class="actions space-x-3">
 						<a href="#"

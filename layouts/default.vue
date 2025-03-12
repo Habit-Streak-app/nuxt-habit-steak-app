@@ -1,6 +1,6 @@
 <template>
     <section id="page" class="bg-gradient-to-r from-indigo-400 to-cyan-400">
-        <header class="bg-gray-400 mx-auto max-w-6xl px-3 py-3 flex justify-between">
+        <header class="rounded-b-4xl bg-white mx-auto max-w-6xl px-3 py-3 flex justify-between">
             <Logo />
             <MobileNav></MobileNav>
             <DesktopNav></DesktopNav>
