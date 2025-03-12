@@ -1,5 +1,5 @@
 <template>
-    <section id="page" class="bg-gradient-to-r from-indigo-400 to-cyan-400">
+    <section id="page" class="bg-gradient-to-r from-indigo-400 to-cyan-400 px-3 md:px-0">
         <header class="rounded-b-4xl bg-white mx-auto max-w-6xl px-3 py-3 flex justify-between">
             <Logo />
             <MobileNav></MobileNav>
