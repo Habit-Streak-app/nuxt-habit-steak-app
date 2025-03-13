@@ -41,7 +41,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { usePocketBase } from '~/stores/pocketbase';
 import {useRouter} from 'vue-router';
 
@@ -49,6 +48,12 @@ const email = ref('');
 const password = ref('');
 const pb = usePocketBase();
 const router = useRouter();
+
+onMounted(() => {
+  if (pb.authStore.isValid) {
+    router.push('/habits');
+  }
+});
 
 const login = async () => {
   try {
