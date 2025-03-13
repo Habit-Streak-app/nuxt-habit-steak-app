@@ -43,21 +43,20 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { usePocketBase } from '~/stores/pocketbase';
+import {useRouter} from 'vue-router';
 
 const email = ref('');
 const password = ref('');
 const pb = usePocketBase();
+const router = useRouter();
 
 const login = async () => {
   try {
     await pb.collection('users').authWithPassword(email.value, password.value);
-    alert('Login successful');
-  } catch (error) {
-    alert('Login failed: ' + error.message);
+    router.push('/');
+  }  catch (error) {
+    // TODO notify user about error
+    console.error(error);
   }
 };
 </script>
-
-<style scoped>
-/* Add any additional styles here */
-</style>
