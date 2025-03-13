@@ -20,20 +20,20 @@
 					<div class="col-span-3">
 						<a href="/" class="btn btn-primary w-full btn-sm">Startseite</a>
 					</div>
-					<div v-if="pb.authStore.isValid" class="col-span-3">
+					<div v-if="loggedIn" class="col-span-3">
 						<a href="/habits" class="btn btn-primary w-full btn-sm">Habits</a>
 					</div>
-					<div v-if="pb.authStore.isValid" class="col-span-3">
+					<div v-if="loggedIn" class="col-span-3">
 						<a href="/settings" class="btn btn-primary w-full btn-sm">Settings</a>
 					</div>
-					<div v-if="pb.authStore.isValid" class="col-span-3">
+					<div v-if="loggedIn" class="col-span-3">
 						<a href="/user" class="btn btn-primary w-full btn-sm">Profile</a>
 					</div>
-					<div v-if="!pb.authStore.isValid" class="col-span-3">
-						<a href="/login" class="btn btn-primary w-full btn-sm">Login</a>
+					<div v-if="loggedIn" class="col-span-3">
+						<button type="button" @click="logout" class="btn btn-primary w-full btn-sm">Logout</button>
 					</div>
 					<div v-else class="col-span-3">
-						<a href="/logout" class="btn btn-primary w-full btn-sm">Logout</a>
+						<a href="/login" class="btn btn-primary w-full btn-sm">Login</a>
 					</div>
 					<div class="col-span-3 hidden">
 						<!--| implement |-->
@@ -56,7 +56,16 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useLocalStorage } from '@vueuse/core';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { usePocketBase } from '~/stores/pocketbase';
+import { useRouter,useRoute } from 'vue-router';
 
 const pb = usePocketBase();
+const router = useRouter();
+const route = useRoute();
 const open = useLocalStorage('open', false, {});
+const loggedIn = ref(pb.authStore.isValid);
+
+const logout = ()=>{
+  pb.authStore.clear();
+  router.go(0)
+}
 </script>
