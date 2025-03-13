@@ -4,7 +4,7 @@
 			<Fa :icon="faBars" color="red" class="w-12" size="2x" @click="open = true" />
 		</section>
 		<section v-else class="times">
-			<Fa :icon="faTimes" color="red" class="w-5" @click="open = false" />
+			<Fa :icon="faTimes" color="red" class="w-12" size="2x" @click="open = false" />
 		</section>
 		<dialog id="my_modal_2" class="modal modal-top" :class="{ 'modal-open': open }" ref="modal-mobile-nav">
 			<div class="modal-box">
