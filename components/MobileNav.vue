@@ -29,7 +29,7 @@
 					<div v-if="pb.authStore.isValid" class="col-span-3">
 						<a href="/user" class="btn btn-primary w-full btn-sm">Profile</a>
 					</div>
-					<div v-if="pb.authStore.isValid" class="col-span-3">
+					<div v-if="!pb.authStore.isValid" class="col-span-3">
 						<a href="/login" class="btn btn-primary w-full btn-sm">Login</a>
 					</div>
 					<div v-else class="col-span-3">

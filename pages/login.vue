@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="flex justify-center">
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
       <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
       <form @submit.prevent="login">
@@ -53,7 +53,7 @@ const router = useRouter();
 const login = async () => {
   try {
     await pb.collection('users').authWithPassword(email.value, password.value);
-    router.push('/');
+    router.push('/habits');
   }  catch (error) {
     // TODO notify user about error
     console.error(error);
