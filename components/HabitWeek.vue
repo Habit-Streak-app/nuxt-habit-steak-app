@@ -1,13 +1,13 @@
 <template>
-  <td v-for="(day, index) in days" :key="day">
-    <div class="tooltip" :data-tip="currentLocaleDate(index, day)">
-      <input v-if="week.days" type="checkbox" :checked="marked(index, day)" class="checkbox checkbox-xs md:checkbox-sm"
-        :class="{
-          'checkbox-primary': isToday(index, day),
-          'checkbox-secondary': !isToday(index, day),
-        }" @change="update(day, true)">
-    </div>
-  </td>
+	<td v-for="(day, index) in days" :key="day">
+		<div class="tooltip" :data-tip="currentLocaleDate(index, day)">
+			<input type="checkbox" :checked="marked(index, day)" v-if="week.days"
+				class="checkbox checkbox-xs md:checkbox-sm" :class="{
+					'checkbox-primary': isToday(index, day),
+					'checkbox-secondary': !isToday(index, day),
+				}" @change="toggle(props.habit, week.number, index)">
+		</div>
+	</td>
 </template>
 
 <script lang="ts" setup>
@@ -18,10 +18,35 @@ const props = defineProps({
 	habit: { required: true, type: String },
 });
 
+const emit = defineEmits(['streak-week']);
+
 const pb = usePocketBase();
 
 const days = ref(['mo', 'di', 'mi', 'do', 'fr', 'sa', 'so']);
 const week = ref({});
+
+const toggle = async (id: String, weekNumber: String, index: Number) => {
+
+	let find = await pb
+		.collection('weeks')
+		.getFirstListItem(
+			'number="' +
+			weekNumber +
+			'" && habit="' +
+			id +
+			'"',
+		);
+	if (!find.days.includes(days.value[index])) {
+		find.days.push(days.value[index]);
+	}
+	else {
+			find.days = find.days.filter(d => d !== days.value[index]);
+		}
+
+	await pb
+		.collection('weeks')
+		.update(find.id, { days: find.days });
+};
 
 const marked = (index, day) => {
 	const today = new Date();
@@ -49,7 +74,7 @@ function getDateByWeekNumberAndDayIndex(year, weekNumber, dayIndex) {
 const isToday = (index, day) => {
 	const year = new Date().getFullYear();
 	const weekNumber = week.value.number; // Example week number
-	const today = getDateByWeekNumberAndDayIndex(year, weekNumber, index +1);
+	const today = getDateByWeekNumberAndDayIndex(year, weekNumber, index + 1);
 
 	return today.toLocaleDateString('de') == new Date().toLocaleDateString('de');
 };
@@ -63,6 +88,12 @@ const getWeekNumber = (date) => {
 onMounted(async () => {
 	week.value = await pb
 		.collection('weeks')
-		.getFirstListItem('habit="'+props.habit+'" && number="' + props.number + '"');
+		.getFirstListItem(
+			'habit="' + props.habit + '" && number="' + props.number + '"',
+		);
+
+	if (week.value.days.length == 7) {
+		emit('streak-week');
+	}
 });
 </script>

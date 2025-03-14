@@ -12,8 +12,8 @@
 	--color-primary-content: white;
 	--color-secondary: black;
 	--color-secondary-content: white;
-	--color-accent: oklch(65% 0.25 160);
-	--color-accent-content: oklch(98% 0.01 160);
+	--color-accent: #ff0000;
+	--color-accent-content: #ff0000;
 	--color-neutral: oklch(50% 0.05 240);
 	--color-neutral-content: oklch(98% 0.01 240);
 }
