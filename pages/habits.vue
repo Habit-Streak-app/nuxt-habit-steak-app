@@ -15,7 +15,7 @@
                   <td v-for="day in days" :key="day">
                     <div class="tooltip" data-tip="hello">
                       <input type="checkbox"
-                        class="checkbox  w-3 h-3 md:w-6 md:w-6 p-0 m- checkbox-sm checkbox-secondary"
+                        class="checkbox checkbox-xs md:checkbox-sm checkbox-secondary"
                         @change="update(day, true)">
                     </div>
                   </td>
