@@ -15,6 +15,7 @@ import { usePocketBase } from '~/stores/pocketbase';
 
 const props = defineProps({
 	number: { required: true, type: Number },
+	habit: { required: true, type: String },
 });
 
 const pb = usePocketBase();
@@ -48,10 +49,7 @@ function getDateByWeekNumberAndDayIndex(year, weekNumber, dayIndex) {
 const isToday = (index, day) => {
 	const year = new Date().getFullYear();
 	const weekNumber = week.value.number; // Example week number
-	const today = getDateByWeekNumberAndDayIndex(year, weekNumber, index);
-
-	console.log('today', today.toLocaleDateString('de'));
-	console.log('date', new Date().toLocaleDateString('de'));
+	const today = getDateByWeekNumberAndDayIndex(year, weekNumber, index +1);
 
 	return today.toLocaleDateString('de') == new Date().toLocaleDateString('de');
 };
@@ -65,6 +63,6 @@ const getWeekNumber = (date) => {
 onMounted(async () => {
 	week.value = await pb
 		.collection('weeks')
-		.getFirstListItem('number="' + props.number + '"');
+		.getFirstListItem('habit="'+props.habit+'" && number="' + props.number + '"');
 });
 </script>

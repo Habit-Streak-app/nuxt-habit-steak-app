@@ -1,33 +1,33 @@
 <template>
-  <section class="card shadow-sm bg-white rounded-lg">
-    <div class="overflow-x-auto text-black">
-      <table class="table">
-        <thead>
-          <tr class="bg-gray-500 text-white">
-            <th v-for="day in days" :key="day" class="text-center font-bold text-sm">{{ day }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="week in weeks" class="bg-gray-400">
-            <HabitWeek :number="week" />
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="card-body px-3 py-3">
-      <h2 class="card-title text-black font-bold">{{ habit.name }}</h2>
-      <p class="text-black py-3 px-3">{{ habit.desc }}</p>
-      <div class="card-actions flex justify-end mt-3">
-        <button type="button" class="btn btn-primary">erledigt</button>
-        <button type="button" @click="edit(habit.id)" class="btn btn-secondary">
-          <Fa :icon="faEdit" class="w-5" />
-        </button>
-        <button type="button" @click="remove(habit.id)" class="btn btn-secondary">
-          <Fa :icon="faTrash" class="w-5" />
-        </button>
-      </div>
-    </div>
-  </section>
+	<section class="card shadow-sm bg-white rounded-lg">
+		<div class="overflow-x-auto text-black">
+			<table class="table">
+				<thead>
+					<tr class="bg-gray-500 text-white">
+						<th v-for="day in days" :key="day" class="text-center font-bold text-sm">{{ day }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="week in weeks" class="bg-gray-400">
+						<HabitWeek :habit="props.identifier" :number="week" />
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="card-body px-3 py-3">
+			<h2 class="card-title text-black font-bold">{{ habit.name }}</h2>
+			<p class="text-black py-3 px-3">{{ habit.desc }}</p>
+			<div class="card-actions flex justify-end mt-3">
+				<button type="button" @click="toggle(habit.id)" class="btn btn-primary">erledigt</button>
+				<button type="button" @click="edit(habit.id)" class="btn btn-secondary">
+					<Fa :icon="faEdit" class="w-5" />
+				</button>
+				<button type="button" @click="remove(habit.id)" class="btn btn-secondary">
+					<Fa :icon="faTrash" class="w-5" />
+				</button>
+			</div>
+		</div>
+	</section>
 </template>
 
 <script lang="ts" setup>
@@ -39,15 +39,15 @@ import HabitWeek from './HabitWeek.vue';
 const pb = usePocketBase();
 const weeks = ref([]);
 const habit = ref({});
-const days = ref(['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']);
+const days = ref(['mo', 'di', 'mi', 'do', 'fr', 'sa', 'so']);
 
 const props = defineProps({
 	identifier: { type: String, required: true },
 });
 
 onMounted(() => {
-	generateLast4Weeks();
 	load();
+	generateLast4Weeks();
 });
 
 const generateLast4Weeks = () => {
@@ -65,13 +65,14 @@ const checkWeek = async (weekNumber) => {
 	pb.autoCancellation(false);
 	const tmp = (
 		await pb.collection('weeks').getList(1, 1, {
-			filter: 'number="' + weekNumber + '"',
+			filter: 'number="' + weekNumber + '" && habit="' + habit.value.id + '"',
 		})
 	).items;
 
 	if (tmp.length == 0) {
 		await pb.collection('weeks').create({
 			number: weekNumber,
+			habit: habit.value.id,
 			user: pb.authStore.record.id,
 		});
 	}
@@ -85,15 +86,24 @@ const getWeekNumber = (date) => {
 
 const load = async () => {
 	habit.value = await pb.collection('habits').getOne(props.identifier);
+	console.log(habit.value.id);
 };
 
 const edit = (id: string) => {
 	console.log(id);
 };
 
-const update = (day: string, state: string) => {
-	console.log(day);
-	console.log(state);
+const toggle = async (id: String) => {
+	console.log(id);
+	let weekNumber = getWeekNumber(new Date());
+	let index = new Date().getDay();
+
+	let week = await pb.collection('weeks').getFirstListItem('habit="'+habit.value.id+'" && number="' + weekNumber + '" && habit="' + id + '"');
+
+	week.days.push(days.value[index-1]);
+	await pb.collection('weeks').update(week.id, 
+		{'days': Object.values(week.days)}
+	);
 };
 
 const remove = (id: string) => {
