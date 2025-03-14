@@ -8,14 +8,14 @@
               <!-- head -->
               <thead>
                 <tr class="bg-gray-500 text-white">
-                  <th v-for="day in days" :key="day" class="text-center font-bold">{{ day }}</th>
+                  <th v-for="day in days" :key="day" class="text-center font-bold text-sm">{{ day }}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="week in weeks" class="bg-gray-400">
                   <td v-for="day in days" :key="day">
                     <div class="tooltip" data-tip="hello">
-                      <input type="checkbox" class="checkbox checkbox-sm checkbox-secondary" @change="update(day,true)">
+                      <input type="checkbox" class="checkbox  w-3 h-3 md:w-6 md:w-6 p-0 m- checkbox-sm checkbox-secondary" @change="update(day,true)">
                     </div>
                   </td>
                 </tr>
