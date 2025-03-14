@@ -1,16 +1,16 @@
 # Nuxt 3 with Vite and VueJs + Tailwind & Daisyui + PocketBase
 
-# Todo
-- Checkbox Icon ?
-- habits card icon ?
+## How to Setup Project ?
+```
+npm install
+```
 
-# Bug
-- bars icon
-- mobile nav wrong loggedin state
+## How to Run Project locally
+```
+npm run dev
+```
 
-# Videos:
-- Biome install with Config ?
-- erledigt button with toggle mode
-- edit logic with modal for edit
-- delete button with logic
-- habits v-for weeks and days
+## How to Run Project in Prod
+```
+npm run build && pm2 restart ecosystem.config.cjs
+```
