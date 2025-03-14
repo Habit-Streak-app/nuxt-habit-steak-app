@@ -1,54 +1,57 @@
 <template>
 	<seciton class="page">
-		<section>
-			<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-				<div class="mr-auto place-self-center lg:col-span-8 lg:px-12 my-12 lg:my-3">
-					<h1
-						class="max-w-2xl mb-4 text-2xl text-white font-extrabold tracking-tight leading-none lg:text-4xl">
-						Streak - by Kevin Chromik</h1>
-					<p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
-						Die Idee einer App zum Habit Tracker - Streak kommt von Kevin Chromik einem deutschen Youtuber
-						der
-						sich mit der Softwareentwicklung bzw. App Entwicklung unter iOS beschäftigt.
-					</p>
-					<section class="space-x-3 actions">
-						<a href="#"
-							class="inline-flex btn w-full sm:w-auto btn-sm btn-primary items-center justify-center px-5 py-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
-							<Fa :icon="faGithub" :class="{
-								'fa-lg': mobile
-							}" color="white"></Fa>
-							<span class="ml-3 text-white " :class="{
-								'btn-sm': mobile,
-								'text-xs': mobile
-							}">
-								Github Code
-							</span>
-						</a>
-						<a href="https://streak.kevinchromik.de/" target="_blank"
-							class="inline-flex btn btn-sm w-full sm:w-auto mt-3 sm:mt-0 btn-block btn-secondary items-center justify-center px-5 py-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
-							<Fa :icon="faLink" :class="{
-								'fa-lg': mobile
-							}" color="white"></Fa>
-							<span class="ml-3 text-white " :class="{
-								'btn-sm': mobile,
-								'text-xs': mobile
-							}">
-								Jetzt auf die Warteliste eintragen
-							</span>
-						</a>
-					</section>
+		<section class="kevin grid grid-cols-7 gap-3 mt-3">
+			<section class="col-span-7 md:col-span-3 flex">
+				<img src="https://cdn.jmse.cloud/avatar-2024-modified.png" class="h-24 ml-6 mt-6" alt="">
+				<div class="text-sm ml-3 bg-white rounded-lg text-black px-3 py-3">
+					<h3 class="font-bold">Wer bin ich ?</h3>
+					<p>Hi, ich bin Jonathan ein Webentwickler aus der nähe von Köln. Ich entwickel seit 2012 Webseite
+						als Hobby und auch als Beruf.</p>
+					<br>
+					<h3 class="font-bold">Wer bin ich ?</h3>
+					<p></p>
 				</div>
-				<div class="lg:mt-0 lg:col-span-4 lg:flex">
-					<div
-						class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-						<div
-							class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white flex justify-center items-center">
-							<img src="https://streak.kevinchromik.de/assets/app_icon.png" class="w-32 h-32" alt="">
-						</div>
-					</div>
+			</section>
+			<section class="col-span-7 md:col-span-4">
+				<h2 class="font-bold block text-center text-lg mb-3">Idee hinter der App</h2>
 
-				</div>
-			</div>
+				<ul class="timeline timeline-vertical">
+					<li>
+						<hr />
+						<div class="timeline-start timeline-box text-center">
+							Auf die Idee hat mich Kevin Chromik mit seinem Video für
+							Streak - Der Habit Tracker App für IOS
+						</div>
+
+						<div class="timeline-middle">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+								class="h-5 w-5">
+								<path fill-rule="evenodd"
+									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+									clip-rule="evenodd" />
+							</svg>
+						</div>
+						<div class="timeline-end">Februar - 2025</div>
+						<hr />
+					</li>
+					<li>
+						<hr />
+						<div class="timeline-start">März - 2025</div>
+						<div class="timeline-middle">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+								class="h-5 w-5">
+								<path fill-rule="evenodd"
+									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+									clip-rule="evenodd" />
+							</svg>
+						</div>
+						<div class="timeline-end timeline-box">
+							Das habe ich als eine Challenge gesehen das selbe mit einer Web-App umzusetzen.
+						</div>
+						<hr />
+					</li>
+				</ul>
+			</section>
 		</section>
 		<section class="mt-6">
 			<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
@@ -62,14 +65,14 @@
 					</div>
 				</div>
 				<div class="mr-auto place-self-center lg:col-span-8">
-					<h1 class="max-w-2xl text-white mb-4 text-2xl font-extrabold leading-none lg:text-4xl">
+					<h1 class="max-w-2xl text-center text-white mb-4 text-2xl font-extrabold leading-none lg:text-4xl">
 						Habit Streak - by Jonathan Martz</h1>
-					<p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
-						Die Idee von Jonathan ist eine App für Habits ähnlich wie die von Kevin nur als Web App oder
-						auch PWA. Jonathan ist ein Webentwickler aus der Nähe von Köln der sich mit dem Thema
-						Webentwicklung auseinander setzt.
+					<p class="max-w-2xl text-center mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi distinctio tenetur labore. Eos
+						dolore reiciendis, veniam saepe possimus, aut alias aliquam natus inventore dolorem cupiditate
+						dolores libero illo, ipsam repellat!
 					</p>
-					<section class="actions space-x-3">
+					<section class="actions space-x-3 flex justify-center">
 						<a href="https://github.com/Habit-Streak-app/nuxt-habit-steak-app" target="_blank"
 							class="inline-flex btn btn-sm btn-primary w-full sm:w-auto items-center justify-center px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
 							<Fa :icon="faGithub" :class="{
@@ -98,53 +101,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="mt-6" id="android">
-			<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-				<div class="mr-auto place-self-center lg:col-span-8 lg:px-12 my-12 lg:my-3">
-					<h1 class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none lg:text-4xl">
-						Streak - by ???</h1>
-					<p class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
-						Es wäre interessant noch einen Entwickler für Android Apps ins Boot zu holen für eine Android
-						Version.
-					</p>
-					<section class="space-x-3 actions">
-						<a href="#android"
-							class="inline-flex btn w-full sm:w-auto btn-sm btn-primary items-center justify-center px-5 py-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
-							<Fa :icon="faGithub" :class="{
-								'fa-lg': mobile
-							}" color="white"></Fa>
-							<span class="ml-3 text-white " :class="{
-								'btn-sm': mobile,
-								'text-xs': mobile
-							}">
-								Github Code
-							</span>
-						</a>
-						<a href="#android" target="_blank"
-							class="inline-flex btn btn-sm w-full sm:w-auto mt-3 sm:mt-0 btn-block btn-secondary items-center justify-center px-5 py-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
-							<Fa :icon="faLink" :class="{
-								'fa-lg': mobile
-							}" color="white"></Fa>
-							<span class="ml-3 text-white " :class="{
-								'btn-sm': mobile,
-								'text-xs': mobile
-							}">
-								Zum Google -Play Store
-							</span>
-						</a>
-					</section>
-				</div>
-				<div class="lg:mt-0 lg:col-span-4 lg:flex">
-					<div
-						class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-						<div
-							class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white flex justify-center items-center">
-							<img src="https://streak.kevinchromik.de/assets/app_icon.png" class="w-32 h-32" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
 	</seciton>
 </template>
 
