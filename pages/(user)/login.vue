@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 import { usePocketBase } from '~/stores/pocketbase';
-import {useRouter} from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const email = ref('');
 const password = ref('');
@@ -50,18 +50,18 @@ const pb = usePocketBase();
 const router = useRouter();
 
 onMounted(() => {
-  if (pb.authStore.isValid) {
-    router.push('/habits');
-  }
+	if (pb.authStore.isValid) {
+		router.push('/habits');
+	}
 });
 
 const login = async () => {
-  try {
-    await pb.collection('users').authWithPassword(email.value, password.value);
-    router.push('/habits');
-  }  catch (error) {
-    // TODO notify user about error
-    console.error(error);
-  }
+	try {
+		await pb.collection('users').authWithPassword(email.value, password.value);
+		router.push('/habits');
+	} catch (error) {
+		// TODO notify user about error
+		console.error(error);
+	}
 };
 </script>

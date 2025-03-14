@@ -1,10 +1,21 @@
 {
-    "name": "Habit-Streak.app",
-    "short_name": "Habit-Streak",
-    "description": "Habit-Streak.app - By Jonathan Martz | Aus der Idee von Kevin Chromik wird eine Web App oder auch PWA gemacht.",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#000",
-    "theme_color": "#1f6fed",
-    "icons":[{"sizes":"192x192","src":"/android-chrome-192x192.png","type":"image/png"},{"sizes":"512x512","src":"/android-chrome-512x512.png","type":"image/png"}]
-  }
+	"name": "Habit-Streak.app",
+	"short_name": "Habit-Streak",
+	"description": "Habit-Streak.app - By Jonathan Martz | Aus der Idee von Kevin Chromik wird eine Web App oder auch PWA gemacht.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#000",
+	"theme_color": "#1f6fed",
+	"icons": [
+		{
+			"sizes": "192x192",
+			"src": "/android-chrome-192x192.png",
+			"type": "image/png"
+		},
+		{
+			"sizes": "512x512",
+			"src": "/android-chrome-512x512.png",
+			"type": "image/png"
+		}
+	]
+}

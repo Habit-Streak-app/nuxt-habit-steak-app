@@ -52,11 +52,11 @@
 </template>
 
 <script lang="ts" setup>
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useLocalStorage } from '@vueuse/core';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { usePocketBase } from '~/stores/pocketbase';
-import { useRouter,useRoute } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 
 const pb = usePocketBase();
 const router = useRouter();
@@ -64,8 +64,8 @@ const route = useRoute();
 const open = useLocalStorage('open', false, {});
 const loggedIn = ref(pb.authStore.isValid);
 
-const logout = ()=>{
-  pb.authStore.clear();
-  router.go(0)
-}
+const logout = () => {
+	pb.authStore.clear();
+	router.go(0);
+};
 </script>

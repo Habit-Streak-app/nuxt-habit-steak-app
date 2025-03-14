@@ -19,13 +19,13 @@ const pb = usePocketBase();
 const habits = ref([]);
 
 const load = async () => {
-  habits.value = (await pb.collection('habits').getList(1, 5, {})).items;
-}
+	habits.value = (await pb.collection('habits').getList(1, 5, {})).items;
+};
 
 onMounted(() => {
-  if (!pb.authStore.isValid) {
-    router.push('/');
-  }
-  load();
-})
+	if (!pb.authStore.isValid) {
+		router.push('/');
+	}
+	load();
+});
 </script>

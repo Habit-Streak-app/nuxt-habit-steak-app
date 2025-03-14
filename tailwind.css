@@ -2,19 +2,18 @@
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
-    name: "theme";
-    default: true; /* set as default */
-    prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
-    color-scheme: light; /* color of browser-provided UI */
-  
-    --color-base-content: black;
-    --color-primary: #1f6fed;
-    --color-primary-content: white;
-    --color-secondary: black;
-    --color-secondary-content: white;
-    --color-accent: oklch(65% 0.25 160);
-    --color-accent-content: oklch(98% 0.01 160);
-    --color-neutral: oklch(50% 0.05 240);
-    --color-neutral-content: oklch(98% 0.01 240);
-  }
-  
+	name: "theme";
+	default: true; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: light; /* color of browser-provided UI */
+
+	--color-base-content: black;
+	--color-primary: #1f6fed;
+	--color-primary-content: white;
+	--color-secondary: black;
+	--color-secondary-content: white;
+	--color-accent: oklch(65% 0.25 160);
+	--color-accent-content: oklch(98% 0.01 160);
+	--color-neutral: oklch(50% 0.05 240);
+	--color-neutral-content: oklch(98% 0.01 240);
+}

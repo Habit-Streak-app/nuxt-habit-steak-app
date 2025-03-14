@@ -42,59 +42,61 @@ const habit = ref({});
 const days = ref(['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']);
 
 const props = defineProps({
-  identifier: { type: String, required: true }
+	identifier: { type: String, required: true },
 });
 
 onMounted(() => {
-  generateLast4Weeks();
-  load();
+	generateLast4Weeks();
+	load();
 });
 
 const generateLast4Weeks = () => {
-  const today = new Date();
-  for (let i = 4; i >= 0; i--) {
-    const date = new Date(today);
-    date.setDate(today.getDate() - (i * 7));
-    const weekNumber = getWeekNumber(date);
-    checkWeek(weekNumber);
-    weeks.value.push(weekNumber)
-  }
+	const today = new Date();
+	for (let i = 4; i >= 0; i--) {
+		const date = new Date(today);
+		date.setDate(today.getDate() - i * 7);
+		const weekNumber = getWeekNumber(date);
+		checkWeek(weekNumber);
+		weeks.value.push(weekNumber);
+	}
 };
 
 const checkWeek = async (weekNumber) => {
-  pb.autoCancellation(false)
-  const tmp = (await pb.collection('weeks').getList(1, 1, {
-    filter: 'number="' + weekNumber + '"'
-  })).items;
+	pb.autoCancellation(false);
+	const tmp = (
+		await pb.collection('weeks').getList(1, 1, {
+			filter: 'number="' + weekNumber + '"',
+		})
+	).items;
 
-  if (tmp.length == 0) {
-    (await pb.collection('weeks').create({
-      number: weekNumber,
-      user: pb.authStore.record.id
-    }))
-  }
-}
+	if (tmp.length == 0) {
+		await pb.collection('weeks').create({
+			number: weekNumber,
+			user: pb.authStore.record.id,
+		});
+	}
+};
 
 const getWeekNumber = (date) => {
-  const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
-  const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
-  return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
-}
+	const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+	const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
+	return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+};
 
 const load = async () => {
-  habit.value = (await pb.collection('habits').getOne(props.identifier));
-}
+	habit.value = await pb.collection('habits').getOne(props.identifier);
+};
 
-const edit = (id: String) => {
-  console.log(id);
-}
+const edit = (id: string) => {
+	console.log(id);
+};
 
-const update = (day: String, state: String) => {
-  console.log(day);
-  console.log(state);
-}
+const update = (day: string, state: string) => {
+	console.log(day);
+	console.log(state);
+};
 
-const remove = (id: String) => {
-  console.log(id);
-}
+const remove = (id: string) => {
+	console.log(id);
+};
 </script>

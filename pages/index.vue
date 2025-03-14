@@ -156,11 +156,11 @@ const mobile = ref(false);
 
 const handleResize = () => {
 	mobile.value = window.innerWidth < 768;
-}
+};
 
 onMounted(() => {
 	window.addEventListener('resize', handleResize);
-	handleResize()
+	handleResize();
 });
 </script>
 
