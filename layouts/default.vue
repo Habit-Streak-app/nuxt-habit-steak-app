@@ -5,7 +5,7 @@
             <MobileNav></MobileNav>
             <DesktopNav></DesktopNav>
         </header>
-        <main class="mx-auto min-h-screen max-w-6xl lg:px-0 px-3 py-3">
+        <main class="mx-auto min-h-screen max-w-6xl py-3">
             <slot></slot>
         </main>
         <footer class="bg-gray-400 py-3 px-3 lg:px-0">
