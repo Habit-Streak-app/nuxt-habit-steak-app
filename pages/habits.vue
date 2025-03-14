@@ -5,7 +5,6 @@
         <section class="card shadow-sm bg-white rounded-lg">
           <div class="overflow-x-auto text-black">
             <table class="table">
-              <!-- head -->
               <thead>
                 <tr class="bg-gray-500 text-white">
                   <th v-for="day in days" :key="day" class="text-center font-bold text-sm">{{ day }}</th>
@@ -15,7 +14,9 @@
                 <tr v-for="week in weeks" class="bg-gray-400">
                   <td v-for="day in days" :key="day">
                     <div class="tooltip" data-tip="hello">
-                      <input type="checkbox" class="checkbox  w-3 h-3 md:w-6 md:w-6 p-0 m- checkbox-sm checkbox-secondary" @change="update(day,true)">
+                      <input type="checkbox"
+                        class="checkbox  w-3 h-3 md:w-6 md:w-6 p-0 m- checkbox-sm checkbox-secondary"
+                        @change="update(day, true)">
                     </div>
                   </td>
                 </tr>
@@ -45,7 +46,9 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { usePocketBase } from '~/stores/pocketbase';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const pb = usePocketBase();
 
 const days = ref(['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']);
@@ -81,6 +84,9 @@ const load = async () => {
 }
 
 onMounted(() => {
+  if (!pb.authStore.isValid) {
+    router.push('/');
+  }
   load();
   generateLast4Weeks();
 })
