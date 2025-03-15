@@ -1,7 +1,11 @@
 import tailwindcss from '@tailwindcss/vite';
+import { VitePWA } from 'vite-plugin-pwa';
 export default defineNuxtConfig({
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [tailwindcss(), VitePWA({
+			registerType: 'autoUpdate',
+			injectRegister: 'auto',
+		}),],
 	},
 	vue: {
 		config: {
