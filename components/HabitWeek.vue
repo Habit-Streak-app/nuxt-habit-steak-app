@@ -25,26 +25,33 @@ const pb = usePocketBase();
 const days = ref(['mo', 'di', 'mi', 'do', 'fr', 'sa', 'so']);
 const week = ref({});
 
+watch(
+	week,
+	() => {
+		if (week.value.days.length === 7) {
+			emit('streak-week', true);
+		} else {
+			emit('streak-week', false);
+		}
+	},
+	{
+		deep: true,
+	},
+);
+
 const toggle = async (id: String, weekNumber: String, index: Number) => {
 	let find = await pb
 		.collection('weeks')
-		.getFirstListItem(
-			'number="' +
-			weekNumber +
-			'" && habit="' +
-			id +
-			'"',
-		);
+		.getFirstListItem('number="' + weekNumber + '" && habit="' + id + '"');
 	if (!find.days.includes(days.value[index])) {
 		find.days.push(days.value[index]);
-	}
-	else {
-		find.days = find.days.filter(d => d !== days.value[index]);
+	} else {
+		find.days = find.days.filter((d) => d !== days.value[index]);
 	}
 
-	await pb
-		.collection('weeks')
-		.update(find.id, { days: find.days });
+	await pb.collection('weeks').update(find.id, { days: find.days });
+
+	load();
 };
 
 const marked = (index, day) => {
@@ -84,15 +91,15 @@ const getWeekNumber = (date) => {
 	return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
 };
 
-onMounted(async () => {
+const load = async () => {
 	week.value = await pb
 		.collection('weeks')
 		.getFirstListItem(
 			'habit="' + props.habit + '" && number="' + props.number + '"',
 		);
+};
 
-	if (week.value.days.length == 7) {
-		emit('streak-week');
-	}
+onMounted(async () => {
+	load();
 });
 </script>

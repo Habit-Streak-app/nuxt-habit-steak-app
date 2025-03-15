@@ -11,7 +11,7 @@
 				<tbody>
 					<tr v-for="(week, index) in weeks"
 						:class="{ 'bg-gray-400': (index % 2 && streakWeek != index), 'bg-white': (!(index % 2) && streakWeek != index), 'bg-warning': streakWeek == index }">
-						<HabitWeek @streak-week="streakWeek = index" :habit="props.identifier" :number="week" />
+						<HabitWeek @streak-week="updateStreakWeek($event,index)" :habit="props.identifier" :number="week" />
 					</tr>
 				</tbody>
 			</table>
@@ -62,6 +62,14 @@ onMounted(() => {
 	generateLast4Weeks();
 });
 
+const updateStreakWeek = async (event, index) => {
+	if (event) {
+		streakWeek.value = index;
+	} else {
+		streakWeek.value = null;
+	}
+};
+
 const generateLast4Weeks = () => {
 	const today = new Date();
 	for (let i = 4; i >= 0; i--) {
@@ -98,7 +106,6 @@ const getWeekNumber = (date) => {
 
 const load = async () => {
 	habit.value = await pb.collection('habits').getOne(props.identifier);
-	console.log(habit.value.id);
 };
 
 const edit = (id: string) => {
@@ -110,7 +117,6 @@ const view = (id: string) => {
 };
 
 const toggle = async (id: String) => {
-	console.log(id);
 	let weekNumber = getWeekNumber(new Date());
 	let index = new Date().getDay();
 
