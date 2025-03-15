@@ -19,7 +19,11 @@
         <form @submit.prevent="send()">
           <div class="form-control">
             <label for="" class="label text-sm mb-3 font-bold">Name</label>
-            <input type="text" class="input w-full bg-white">
+            <input type="text" v-model="form.name" class="input w-full bg-white text-black">
+          </div>
+          <div class="form-control">
+            <label for="" class="label text-sm mb-3 font-bold">Beschreibung</label>
+            <input type="text" v-model="form.desc" class="input w-full bg-white text-black">
           </div>
           <section class="actions flex justify-between mt-3">
             <button @click="modalAdd = false" class="btn btn-sm">
@@ -50,18 +54,32 @@ import { useLocalStorage } from '@vueuse/core';
 
 const router = useRouter();
 const pb = usePocketBase();
+const form = ref({
+  name: '',
+  desc: '',
+  user: pb.authStore.record?.id,
+});
 
 const habits = ref([]);
 const modalAdd = useLocalStorage('modal-add', false, {});
 
+const send = async () => {
+  await pb.collection('habits').create(form.value);
+  form.value = {
+    name: '',
+    desc: '',
+  }
+  form.value.user = pb.authStore.record?.id;
+};
+
 const load = async () => {
-	habits.value = (await pb.collection('habits').getList(1, 5, {})).items;
+  habits.value = (await pb.collection('habits').getList(1, 5, {})).items;
 };
 
 onMounted(() => {
-	if (!pb.authStore.isValid) {
-		router.push('/');
-	}
-	load();
+  if (!pb.authStore.isValid) {
+    router.push('/');
+  }
+  load();
 });
 </script>

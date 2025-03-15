@@ -2,15 +2,21 @@
 	<seciton class="page">
 		<section class="kevin grid grid-cols-7 gap-3 mt-3">
 			<section class="col-span-7 md:col-span-3 flex">
-				<img src="https://cdn.jmse.cloud/avatar-2024-modified.png" class="h-24 ml-6 mt-6" alt="">
-				<div class="text-sm ml-3 bg-white rounded-lg text-black px-3 py-3">
-					<h3 class="font-bold">Wer bin ich ?</h3>
-					<p>Hi, ich bin Jonathan ein Webentwickler aus der nähe von Köln. Ich entwickel seit 2012 Webseite
-						als Hobby und auch als Beruf.</p>
-					<br>
-					<h3 class="font-bold">Wer bin ich ?</h3>
-					<p></p>
-				</div>
+				<section class="grid grid-cols-6">
+					<div class="col-span-6 lg:col-span-3">
+						<img src="https://cdn.jmse.cloud/avatar-2024-modified.png"
+							class="mx-auto md:mx-3 h-24" alt="">
+					</div>
+					<div class="col-span-6 lg:col-span-3 mt-6 md:mt-0">
+						<div class="text-sm ml-3 bg-white rounded-lg text-black px-3 py-3 text-center">
+							<h3 class="font-bold">Wer bin ich ?</h3>
+							<p>Hi, ich bin Jonathan ein Webentwickler aus der nähe von Köln. Ich entwickel seit 2012
+								Webseite
+								als Hobby und auch als Beruf.</p>
+							<br>
+						</div>
+					</div>
+				</section>
 			</section>
 			<section class="col-span-7 md:col-span-4">
 				<h2 class="font-bold block text-center text-lg mb-3">Idee hinter der App</h2>
@@ -53,9 +59,9 @@
 				</ul>
 			</section>
 		</section>
-		<section class="mt-6">
+		<section class="">
 			<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-				<div class="lg:mt-0 lg:col-span-4 lg:flex lg:px-12 my-12 lg:my-3">
+				<div class="lg:mt-0 lg:col-span-4 lg:flex lg:px-12 lg:my-3 mb-6">
 					<div
 						class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
 						<div
@@ -72,7 +78,8 @@
 						dolore reiciendis, veniam saepe possimus, aut alias aliquam natus inventore dolorem cupiditate
 						dolores libero illo, ipsam repellat!
 					</p>
-					<section class="actions space-x-3 md:space-x-0 flex space-y-3 lg:space-y-0 justify-center flex-col lg:flex-row">
+					<section
+						class="actions space-x-3 md:space-x-0 flex space-y-3 lg:space-y-0 justify-center flex-col lg:flex-row">
 						<a href="https://github.com/Habit-Streak-app/nuxt-habit-steak-app" target="_blank"
 							class="btn btn-sm btn-primary mx-0 lg:mx-3 mt-3 sm:mt-0 px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
 							<Fa :icon="faGithub" :class="{
