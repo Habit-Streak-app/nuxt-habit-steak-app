@@ -26,7 +26,6 @@ const days = ref(['mo', 'di', 'mi', 'do', 'fr', 'sa', 'so']);
 const week = ref({});
 
 const toggle = async (id: String, weekNumber: String, index: Number) => {
-
 	let find = await pb
 		.collection('weeks')
 		.getFirstListItem(
@@ -40,8 +39,8 @@ const toggle = async (id: String, weekNumber: String, index: Number) => {
 		find.days.push(days.value[index]);
 	}
 	else {
-			find.days = find.days.filter(d => d !== days.value[index]);
-		}
+		find.days = find.days.filter(d => d !== days.value[index]);
+	}
 
 	await pb
 		.collection('weeks')
