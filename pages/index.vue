@@ -72,9 +72,9 @@
 						dolore reiciendis, veniam saepe possimus, aut alias aliquam natus inventore dolorem cupiditate
 						dolores libero illo, ipsam repellat!
 					</p>
-					<section class="actions space-x-3 flex justify-center">
+					<section class="actions space-x-3 md:space-x-0 flex space-y-3 lg:space-y-0 justify-center flex-col lg:flex-row">
 						<a href="https://github.com/Habit-Streak-app/nuxt-habit-steak-app" target="_blank"
-							class="inline-flex btn btn-sm btn-primary w-full sm:w-auto items-center justify-center px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+							class="btn btn-sm btn-primary mx-0 lg:mx-3 mt-3 sm:mt-0 px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
 							<Fa :icon="faGithub" :class="{
 								'fa-lg': mobile
 							}" color="white"></Fa>
@@ -85,8 +85,8 @@
 								Github Code
 							</span>
 						</a>
-						<a href="https://app.habit-streak.app/"
-							class="inline-flex btn btn-sm btn-secondary w-full sm:w-auto mt-3 sm:mt-0 items-center justify-center px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+						<a href="/login"
+							class="btn btn-sm btn-secondary mt-3 sm:mt-0 px-5 py-6 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
 							<Fa :icon="faLink" :class="{
 								'fa-lg': mobile
 							}" color="white"></Fa>
@@ -94,7 +94,7 @@
 								'btn-sm': mobile,
 								'text-xs': mobile
 							}">
-								Zur Webseite (Coming Soon)
+								Zur Webseite
 							</span>
 						</a>
 					</section>

@@ -11,7 +11,8 @@
 				<tbody>
 					<tr v-for="(week, index) in weeks"
 						:class="{ 'bg-gray-400': (index % 2 && streakWeek != index), 'bg-white': (!(index % 2) && streakWeek != index), 'bg-warning': streakWeek == index }">
-						<HabitWeek @streak-week="updateStreakWeek($event,index)" :habit="props.identifier" :number="week" />
+						<HabitWeek @streak-week="updateStreakWeek($event, index)" :habit="props.identifier"
+							:number="week" />
 					</tr>
 				</tbody>
 			</table>
@@ -82,19 +83,21 @@ const generateLast4Weeks = () => {
 };
 
 const checkWeek = async (weekNumber) => {
-	pb.autoCancellation(false);
-	const tmp = (
-		await pb.collection('weeks').getList(1, 1, {
-			filter: 'number="' + weekNumber + '" && habit="' + habit.value.id + '"',
-		})
-	).items;
+	if (false) {
+		pb.autoCancellation(false);
+		const tmp = (
+			await pb.collection('weeks').getList(1, 1, {
+				filter: 'number="' + weekNumber + '" && habit="' + habit.value.id + '"',
+			})
+		).items;
 
-	if (tmp.length == 0) {
-		await pb.collection('weeks').create({
-			number: weekNumber,
-			habit: habit.value.id,
-			user: pb.authStore.record?.id,
-		});
+		if (tmp.length == 0) {
+			await pb.collection('weeks').create({
+				number: weekNumber,
+				habit: habit.value.id,
+				user: pb.authStore.record?.id,
+			});
+		}
 	}
 };
 
@@ -124,12 +127,12 @@ const toggle = async (id: String) => {
 		.collection('weeks')
 		.getFirstListItem(
 			'habit="' +
-				habit.value.id +
-				'" && number="' +
-				weekNumber +
-				'" && habit="' +
-				id +
-				'"',
+			habit.value.id +
+			'" && number="' +
+			weekNumber +
+			'" && habit="' +
+			id +
+			'"',
 		);
 
 	week.days.push(days.value[index - 1]);
