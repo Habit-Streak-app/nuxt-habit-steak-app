@@ -70,16 +70,20 @@ const send = async () => {
     desc: '',
   }
   form.value.user = pb.authStore.record?.id;
+  modalAdd.value = false;
 };
 
 const load = async () => {
-  habits.value = (await pb.collection('habits').getList(1, 5, {})).items;
+  habits.value = (await pb.collection('habits').getList(1, 10, {sort: '-created'})).items;
 };
 
-onMounted(() => {
+onMounted(async () => {
   if (!pb.authStore.isValid) {
     router.push('/');
   }
   load();
+  await pb.collection('habits').subscribe('*', function (e) {
+    load();
+}, { /* other options like: filter, expand, custom headers, etc. */ });
 });
 </script>
