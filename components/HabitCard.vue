@@ -1,5 +1,5 @@
 <template>
-	<section class="card shadow-sm bg-white rounded-lg">
+	<section v-if="!habit.deleted" class="card shadow-sm bg-white rounded-lg">
 		<div class="overflow-x-auto text-black">
 			<table class="table">
 				<thead>
@@ -11,8 +11,7 @@
 				<tbody>
 					<tr v-for="(week, index) in weeks"
 						:class="{ 'bg-gray-400': (index % 2 && streakWeek != index), 'bg-white': (!(index % 2) && streakWeek != index), 'bg-warning': streakWeek == index }">
-						<HabitWeek @streak-week="updateStreakWeek($event, index)" :habit="props.identifier"
-							:number="week" />
+						<HabitWeek @streak-week="updateStreakWeek($event,index)" :habit="props.identifier" :number="week" />
 					</tr>
 				</tbody>
 			</table>
@@ -83,21 +82,19 @@ const generateLast4Weeks = () => {
 };
 
 const checkWeek = async (weekNumber) => {
-	if (false) {
-		pb.autoCancellation(false);
-		const tmp = (
-			await pb.collection('weeks').getList(1, 1, {
-				filter: 'number="' + weekNumber + '" && habit="' + habit.value.id + '"',
-			})
-		).items;
+	pb.autoCancellation(false);
+	const tmp = (
+		await pb.collection('weeks').getList(1, 1, {
+			filter: 'number="' + weekNumber + '" && habit="' + habit.value.id + '"',
+		})
+	).items;
 
-		if (tmp.length == 0) {
-			await pb.collection('weeks').create({
-				number: weekNumber,
-				habit: habit.value.id,
-				user: pb.authStore.record?.id,
-			});
-		}
+	if (tmp.length == 0) {
+		await pb.collection('weeks').create({
+			number: weekNumber,
+			habit: habit.value.id,
+			user: pb.authStore.record?.id,
+		});
 	}
 };
 
@@ -127,12 +124,12 @@ const toggle = async (id: String) => {
 		.collection('weeks')
 		.getFirstListItem(
 			'habit="' +
-			habit.value.id +
-			'" && number="' +
-			weekNumber +
-			'" && habit="' +
-			id +
-			'"',
+				habit.value.id +
+				'" && number="' +
+				weekNumber +
+				'" && habit="' +
+				id +
+				'"',
 		);
 
 	week.days.push(days.value[index - 1]);
@@ -141,7 +138,8 @@ const toggle = async (id: String) => {
 		.update(week.id, { days: Object.values(week.days) });
 };
 
-const remove = (id: string) => {
-	console.log(id);
+const remove = async (id: string) => {
+	await pb.collection('habits').update(id, { deleted: true});
+	habit.value.deleted = true;
 };
 </script>
