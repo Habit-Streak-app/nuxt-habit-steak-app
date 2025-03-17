@@ -1,6 +1,6 @@
 <template>
 	<section v-if="!habit.deleted" class="card shadow-sm bg-white rounded-lg">
-		<div class="overflow-x-auto text-black">
+		<div class="text-black">
 			<table class="table">
 				<thead>
 					<tr class="bg-gray-500 text-white">
@@ -11,7 +11,8 @@
 				<tbody>
 					<tr v-for="(week, index) in weeks"
 						:class="{ 'bg-gray-400': (index % 2 && streakWeek != index), 'bg-white': (!(index % 2) && streakWeek != index), 'bg-warning': streakWeek == index }">
-						<HabitWeek @streak-week="updateStreakWeek($event,index)" :habit="props.identifier" :number="week" />
+						<HabitWeek @streak-week="updateStreakWeek($event, index)" :habit="props.identifier"
+							:number="week" />
 					</tr>
 				</tbody>
 			</table>
@@ -72,9 +73,18 @@ const updateStreakWeek = async (event, index) => {
 
 const generateLast4Weeks = () => {
 	const today = new Date();
-	for (let i = 4; i >= 0; i--) {
+	if (process.env.NODE_ENV === 'production') {
+		for (let i = 4; i >= 0; i--) {
+			const date = new Date(today);
+			date.setDate(today.getDate() - i * 7);
+			const weekNumber = getWeekNumber(date);
+			checkWeek(weekNumber);
+			weeks.value.push(weekNumber);
+		}
+	}
+	else {
 		const date = new Date(today);
-		date.setDate(today.getDate() - i * 7);
+		date.setDate(today.getDate() - 1 * 7);
 		const weekNumber = getWeekNumber(date);
 		checkWeek(weekNumber);
 		weeks.value.push(weekNumber);
@@ -124,12 +134,12 @@ const toggle = async (id: String) => {
 		.collection('weeks')
 		.getFirstListItem(
 			'habit="' +
-				habit.value.id +
-				'" && number="' +
-				weekNumber +
-				'" && habit="' +
-				id +
-				'"',
+			habit.value.id +
+			'" && number="' +
+			weekNumber +
+			'" && habit="' +
+			id +
+			'"',
 		);
 
 	week.days.push(days.value[index - 1]);
@@ -139,7 +149,7 @@ const toggle = async (id: String) => {
 };
 
 const remove = async (id: string) => {
-	await pb.collection('habits').update(id, { deleted: true});
+	await pb.collection('habits').update(id, { deleted: true });
 	habit.value.deleted = true;
 };
 </script>

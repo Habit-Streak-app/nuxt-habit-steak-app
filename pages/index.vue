@@ -3,11 +3,11 @@
 		<section class="kevin grid grid-cols-7 gap-3 mt-3">
 			<section class="col-span-7 md:col-span-3 flex">
 				<section class="grid grid-cols-6">
-					<div class="col-span-6 lg:col-span-3">
+					<div class="col-span-6 lg:col-span-2">
 						<img src="https://cdn.jmse.cloud/avatar-2024-modified.png"
 							class="mx-auto md:mx-3 h-24" alt="">
 					</div>
-					<div class="col-span-6 lg:col-span-3 mt-6 md:mt-0">
+					<div class="col-span-6 lg:col-span-4 mt-6 md:mt-0">
 						<div class="text-sm ml-3 bg-white rounded-lg text-black px-3 py-3 text-center">
 							<h3 class="font-bold">Wer bin ich ?</h3>
 							<p>Hi, ich bin Jonathan ein Webentwickler aus der nähe von Köln. Ich entwickel seit 2012
@@ -71,9 +71,9 @@
 					</div>
 				</div>
 				<div class="mr-auto place-self-center lg:col-span-8">
-					<h1 class="max-w-2xl text-center text-white mb-4 text-2xl font-extrabold leading-none lg:text-4xl">
+					<h1 class="max-w-2xl text-center text-white ml-6 mb-4 text-2xl font-extrabold leading-none lg:text-4xl">
 						Habit Streak - by Jonathan Martz</h1>
-					<p class="max-w-2xl text-center mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
+					<p class="max-w-2xl text-center ml-6 mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi distinctio tenetur labore. Eos
 						dolore reiciendis, veniam saepe possimus, aut alias aliquam natus inventore dolorem cupiditate
 						dolores libero illo, ipsam repellat!

@@ -7,9 +7,14 @@
           <Fa :icon="faPlusCircle" @click="modalAdd = true" class="w-8 cursor-pointer" size="2x" color="white" />
         </section>
       </section>
-      <div v-for="habit in habits" class="col-span-6 md:col-span-3">
+      <section v-if="habits.lengt !== 0" v-for="habit in habits" class="col-span-6 md:col-span-3">
         <HabitCard :identifier="habit.id" />
-      </div>
+      </section>
+      <section v-else class="col-span-6">
+        <p class="text-sm font-bold text-white px-3 py-3 text-center border-2 border-white">
+          Es sind noch keine Habits eingetragen.
+        </p>
+      </section>
     </section>
     <dialog id="modal_add" class="modal modal-top " :class="{ 'modal-open': modalAdd }">
       <div class="modal-box bg-gray-500 px-6">
@@ -64,17 +69,17 @@ const habits = ref([]);
 const modalAdd = useLocalStorage('modal-add', false, {});
 
 const send = async () => {
-  await pb.collection('habits').create(form.value);
-  form.value = {
-    name: '',
-    desc: '',
-  }
-  form.value.user = pb.authStore.record?.id;
+  console.log(form.value.name);
+  await pb.collection('habits').create({
+    name: form.value.name,
+    desc: form.value.desc,
+    user: pb.authStore.record?.id
+  });
   modalAdd.value = false;
 };
 
 const load = async () => {
-  habits.value = (await pb.collection('habits').getList(1, 10, {sort: '-created'})).items;
+  habits.value = (await pb.collection('habits').getList(1, 10, { sort: '-created' })).items;
 };
 
 onMounted(async () => {
@@ -84,6 +89,6 @@ onMounted(async () => {
   load();
   await pb.collection('habits').subscribe('*', function (e) {
     load();
-}, { /* other options like: filter, expand, custom headers, etc. */ });
+  }, { /* other options like: filter, expand, custom headers, etc. */ });
 });
 </script>
