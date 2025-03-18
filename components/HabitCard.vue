@@ -63,6 +63,15 @@ onMounted(() => {
 	generateLast4Weeks();
 });
 
+watch(
+	() => props.identifier,
+	(newValue, oldValue) => {
+		if (newValue != oldValue) {
+			load()
+		}
+	}
+);
+
 const updateStreakWeek = async (event, index) => {
 	if (event) {
 		streakWeek.value = index;

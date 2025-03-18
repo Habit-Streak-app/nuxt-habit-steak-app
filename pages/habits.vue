@@ -69,17 +69,25 @@ const habits = ref([]);
 const modalAdd = useLocalStorage('modal-add', false, {});
 
 const send = async () => {
-  console.log(form.value.name);
   await pb.collection('habits').create({
     name: form.value.name,
     desc: form.value.desc,
     user: pb.authStore.record?.id
   });
   modalAdd.value = false;
+  form.value = {
+    name: '',
+    desc: '',
+    user: pb.authStore.record?.id
+  }
+  router.push('/habits')
 };
 
 const load = async () => {
   habits.value = (await pb.collection('habits').getList(1, 10, { sort: '-created' })).items;
+  habits.value = habits.value.filter((item) => {
+    return !item.deleted;
+  });
 };
 
 onMounted(async () => {
