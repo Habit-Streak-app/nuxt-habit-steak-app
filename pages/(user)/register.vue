@@ -7,31 +7,30 @@
           <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
             Email
           </label>
-          <input
-            v-model="email"
+          <input v-model="email"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            type="email"
-            placeholder="Email"
-          />
+            id="email" type="email" placeholder="Email" />
         </div>
-        <div class="mb-6">
+        <div class="">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
             Password
           </label>
-          <input
-            v-model="password"
+          <input v-model="password"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            placeholder="Password"
-          />
+            id="password" type="password" placeholder="Password" />
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            Password bestätigen
+          </label>
+          <input v-model="passwordConfirm"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            id="password" type="password" placeholder="Password - bestätigen" />
         </div>
         <div class="flex items-center justify-end">
           <button
             class="bg-blue-500  btn btn-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
+            type="submit">
             Login
           </button>
         </div>
@@ -46,37 +45,34 @@ import { useRouter } from 'vue-router';
 
 const email = ref('');
 const password = ref('');
+const passwordConfirm = ref('');
 const pb = usePocketBase();
 const router = useRouter();
 
 onMounted(() => {
-	if (pb.authStore.isValid) {
-		router.push('/habits');
-	}
+  if (pb.authStore.isValid) {
+    router.push('/habits');
+  }
 });
 
 const register = async () => {
-	try {
-		await pb.collection('users').create({
+  try {
+    await pb.collection('users').create({
       email: email.value,
       password: password.value,
-      passwordConfirm: password.value,
+      passwordConfirm: passwordConfirm.value,
     });
-    login();
-		router.push('/habits');
-	} catch (error) {
-		// TODO notify user about error
-		console.error(error);
-	}
+    try {
+      await pb.collection('users').authWithPassword(email.value, password.value);
+      router.push('/habits');
+    } catch (error) {
+      // TODO notify user about error
+      console.error(error);
+    }
+  } catch (error) {
+    // TODO notify user about error
+    console.error(error);
+  }
 };
 
-const login = async () => {
-	try {
-		await pb.collection('users').authWithPassword(email.value, password.value);
-		router.push('/habits');
-	} catch (error) {
-		// TODO notify user about error
-		console.error(error);
-	}
-};
 </script>

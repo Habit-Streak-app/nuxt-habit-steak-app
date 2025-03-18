@@ -1,7 +1,10 @@
 <template>
 	<section class="page">
-		<section class="kevin grid grid-cols-7 gap-3 mt-3">
-			<section class="col-span-7 md:col-span-3 flex">
+		<section class="kevin grid grid-cols-7 gap-3">
+			<div class="col-span-7" v-if="!pb.authStore.isValid">
+				<a href="/register" class="btn btn-primary w-full">Jetzt registrieren</a>
+			</div>
+			<section class="col-span-7 md:col-span-3 flex mt-3">
 				<section class="grid grid-cols-6">
 					<div class="col-span-6 lg:col-span-2">
 						<img src="https://cdn.jmse.cloud/avatar-2024-modified.png"
@@ -115,7 +118,10 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
+import { usePocketBase } from '~/stores/pocketbase';
+
 const mobile = ref(false);
+const pb = usePocketBase();
 
 const handleResize = () => {
 	mobile.value = window.innerWidth < 768;
