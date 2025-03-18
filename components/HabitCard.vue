@@ -1,6 +1,6 @@
 <template>
 	<section v-if="!habit.deleted" class="card shadow-sm bg-white rounded-lg">
-		<div class="text-black">
+		<div class="text-black overflow-x-auto">
 			<table class="table">
 				<thead>
 					<tr class="bg-gray-500 text-white">
