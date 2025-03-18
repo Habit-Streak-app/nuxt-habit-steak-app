@@ -1,5 +1,5 @@
 <template>
-	<seciton class="page">
+	<section class="page">
 		<section class="kevin grid grid-cols-7 gap-3 mt-3">
 			<section class="col-span-7 md:col-span-3 flex">
 				<section class="grid grid-cols-6">
@@ -108,13 +108,12 @@
 				</div>
 			</div>
 		</section>
-
-	</seciton>
+	</section>
 </template>
 
 <script lang="ts" setup>
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faEdit, faLink } from '@fortawesome/free-solid-svg-icons';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 const mobile = ref(false);
 
