@@ -64,6 +64,7 @@ const register = async () => {
     });
     try {
       await pb.collection('users').authWithPassword(email.value, password.value);
+      await pb.collection('users').requestVerification(email.value)
       router.push('/habits');
     } catch (error) {
       // TODO notify user about error

@@ -82,18 +82,9 @@ const updateStreakWeek = async (event, index) => {
 
 const generateLast4Weeks = () => {
 	const today = new Date();
-	if (process.env.NODE_ENV === 'production') {
-		for (let i = 4; i >= 0; i--) {
-			const date = new Date(today);
-			date.setDate(today.getDate() - i * 7);
-			const weekNumber = getWeekNumber(date);
-			checkWeek(weekNumber);
-			weeks.value.push(weekNumber);
-		}
-	}
-	else {
+	for (let i = 4; i >= 0; i--) {
 		const date = new Date(today);
-		date.setDate(today.getDate() - 1 * 7);
+		date.setDate(today.getDate() - i * 7);
 		const weekNumber = getWeekNumber(date);
 		checkWeek(weekNumber);
 		weeks.value.push(weekNumber);
@@ -155,10 +146,13 @@ const toggle = async (id: String) => {
 	await pb
 		.collection('weeks')
 		.update(week.id, { days: Object.values(week.days) });
+	load();
 };
 
 const remove = async (id: string) => {
-	await pb.collection('habits').update(id, { deleted: true });
-	habit.value.deleted = true;
+	if (confirm('Hallo Welt')) {
+		await pb.collection('habits').update(id, { deleted: true });
+		habit.value.deleted = true;
+	}
 };
 </script>
