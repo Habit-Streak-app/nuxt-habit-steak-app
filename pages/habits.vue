@@ -4,7 +4,7 @@
       <section class="flex justify-between col-span-6">
         <h2 class="font-bold text-lg">Habits</h2>
         <section class="actions">
-          <Fa :icon="faPlusCircle" @click="modalAdd = true" class="w-8 cursor-pointer" size="2x" color="white" />
+          <Fa :icon="faPlusCircle" @click="modalAdd = !modalAdd" class="w-8 cursor-pointer" size="2x" color="white" />
         </section>
       </section>
       <section v-if="habits.length !== 0" v-for="habit in habits" class="col-span-6 md:col-span-3">

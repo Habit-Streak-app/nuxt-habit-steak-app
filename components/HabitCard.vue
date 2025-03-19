@@ -34,6 +34,36 @@
 			</div>
 		</div>
 	</section>
+	<section>
+		<dialog class="modal" :class="{ 'modal-open': editModal }">
+			<div class="modal-box">
+				<h3 class="text-lg font-bold">Habit bearbeiten</h3>
+				<form @submit.prevent="editAction()">
+					<div class="form-control">
+						<label for="" class="label text-sm mb-3 font-bold">Name</label>
+						<input type="text" v-model="form.name" class="input w-full bg-white text-black">
+					</div>
+					<div class="form-control">
+						<label for="" class="label text-sm mb-3 font-bold">Beschreibung</label>
+						<input type="text" v-model="form.desc" class="input w-full bg-white text-black">
+					</div>
+					<section class="actions flex justify-between mt-3">
+						<button @click="editModal = false" class="btn btn-sm">
+							Close
+						</button>
+						<button type="submit" class="btn btn-sm btn-primary">
+							Speichern
+						</button>
+					</section>
+				</form>
+				<div class="modal-action">
+					<form method="dialog" class="modal-backdrop">
+						<button @click="editModal = false">close</button>
+					</form>
+				</div>
+			</div>
+		</dialog>
+	</section>
 </template>
 
 <script lang="ts" setup>
@@ -51,6 +81,12 @@ const pb = usePocketBase();
 const router = useRouter();
 const weeks = ref([]);
 const streakWeek = ref(null);
+const editModal = ref(false);
+const form = ref({
+	name: '',
+	desc: '',
+	user: pb.authStore.record?.id,
+});
 const habit = ref({});
 const days = ref(['mo', 'di', 'mi', 'do', 'fr', 'sa', 'so']);
 
@@ -118,9 +154,16 @@ const load = async () => {
 	habit.value = await pb.collection('habits').getOne(props.identifier);
 };
 
-const edit = (id: string) => {
-	console.log(id);
+const edit = async (id: string) => {
+	editModal.value = true;
+	form.value = await pb.collection('habits').getOne(id);
 };
+
+const editAction = async () => {
+	await pb.collection('habits').update(form.value.id, form.value);
+	editModal.value = false;
+	load();
+}
 
 const view = (id: string) => {
 	router.push('/habit/' + id);
