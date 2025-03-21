@@ -1,4 +1,36 @@
 {
-    "hello": "Hello",
-    "welcome": "Welcome"
+  "hello": "Hello",
+  "label": {
+    "name": "Name",
+    "desc": "Description"
+  },
+  "link": {
+    "github-code": "Github Code",
+    "webapp": "To the website"
+  },
+  "calendar": {
+    "02": "February",
+    "03": "March"
+  },
+  "preview": {
+    "headline": "Habit Streak - by Jonathan Martz",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi distinctio tenetur labore. Eos dolore reiciendis, veniam saepe possimus, aut alias aliquam natus inventore dolorem cupiditate dolores libero illo, ipsam repellat!"
+  },
+  "index": {
+    "headline": "Idea behind the app",
+    "challange": "I saw this as a challenge to implement the same with a web app.",
+    "kevin": "Kevin Chromik gave me the idea with his video for Streak - The Habit Tracker App for IOS",
+    "register-now": "Register now",
+    "about-me-headline": "Who am I?",
+    "about-me": "Hi, I'm Jonathan, a web developer near Cologne. I have been developing websites as a hobby and also as a profession since 2012."
+  },
+  "action": {
+    "close": "Close",
+    "save": "Save"
+  },
+  "habits": {
+    "headline": "Habits",
+    "add-habit": "Add habit",
+    "no-habits": "No habits have been entered yet."
   }
+}

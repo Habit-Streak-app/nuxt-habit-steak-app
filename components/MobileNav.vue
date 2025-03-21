@@ -27,7 +27,7 @@
 						<a href="/settings" class="btn btn-primary w-full btn-sm">Settings</a>
 					</div>
 					<div v-if="loggedIn" class="col-span-3">
-						<a href="/user" class="btn btn-primary w-full btn-sm">Profile</a>
+						<a href="/profile" class="btn btn-primary w-full btn-sm">Profile</a>
 					</div>
 					<div v-if="loggedIn" class="col-span-3">
 						<button type="button" @click="logout" class="btn btn-primary w-full btn-sm">Logout</button>
