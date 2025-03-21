@@ -1,5 +1,11 @@
 {
   "hello": "Hallo",
+  "lang": {
+    "change": "Sprache einstellen",
+    "selected": "ausgewählt",
+    "de": "Deutsch",
+    "en": "Englisch"
+  },
   "label": {
     "name": "Name",
     "desc": "Beschreibung"

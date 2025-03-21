@@ -1,13 +1,19 @@
 <script setup>
-const { setLocale } = useI18n()
+import { useI18n } from 'vue-i18n'
+
+const { setLocale, locale } = useI18n()
+
+const currentLocale = locale.value;
 </script>
 
 <template>
-  <div>
-    <div>
-      <button class="btn btn-secondary" @click="setLocale('en')">en</button>
-      <button class="btn btn-primary" @click="setLocale('de')">de</button>
-      <p class="prose">{{ $t('hello') }}</p>
-    </div>
+  <div class="divider divider-primary block text-center font-bold">{{ $t('lang.change') }}</div>
+  <div class="space-y-3">
+    <button class="btn btn-secondary w-full" @click="setLocale('en')">en</button>
+    <button class="btn btn-primary w-full" @click="setLocale('de')">de</button>
+    <p class="prose w-full bg-white px-3 py-3 text-black text-center">
+      {{ $t('lang.selected') }}:
+      {{ $t('lang.' + currentLocale) }}
+    </p>
   </div>
 </template>

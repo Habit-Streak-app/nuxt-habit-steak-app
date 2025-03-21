@@ -4,6 +4,12 @@
     "name": "Name",
     "desc": "Description"
   },
+  "lang": {
+    "change": "Switch Language",
+    "selected": "selected",
+    "de": "German",
+    "en": "English"
+  },
   "link": {
     "github-code": "Github Code",
     "webapp": "To the website"
