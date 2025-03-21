@@ -25,7 +25,6 @@ export default defineNuxtConfig({
 		langDir: 'lang/',
 		defaultLocale: 'de'
 	},
-	css: ['~/tailwind.css'],
 	compatibilityDate: '2025-03-11',
 	modules: ['@nuxtjs/i18n'],
 });

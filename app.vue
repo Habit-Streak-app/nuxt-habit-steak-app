@@ -5,6 +5,7 @@
 </template>
 
 <script setup lang="ts">
+import './tailwind.css'
 onMounted(() => {
 	navigator.serviceWorker
 		.register('/service-worker.js')

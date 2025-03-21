@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="col-span-6 md:col-span-2">
+    <div class="col-span-6 xs:col-span-3 md:col-span-2">
       <div class="card bg-white text-black text-center">
         <div class="card-body">
           <h2 class="number font-bold text-xl">{{ weekNumber }}</h2>
