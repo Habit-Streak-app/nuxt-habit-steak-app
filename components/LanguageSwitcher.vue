@@ -3,7 +3,9 @@ import { useI18n } from 'vue-i18n'
 
 const { setLocale, locale } = useI18n()
 
-const currentLocale = locale.value;
+const currentLocale = computed(()=>{
+  return locale.value;
+});
 </script>
 
 <template>
