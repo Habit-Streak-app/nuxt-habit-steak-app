@@ -7,12 +7,24 @@ export default defineNuxtConfig({
 			injectRegister: 'auto',
 		}),],
 	},
+
 	vue: {
 		config: {
 			productionTip: false,
 			devtools: true,
 		},
 	},
+
+	i18n: {
+		locales: [
+			{ code: 'en', file: 'en.json' },
+			{ code: 'de', file: 'de.json' }
+		],
+		lazy: true,
+		langDir: 'lang/',
+		defaultLocale: 'de'
+	},
 	css: ['~/tailwind.css'],
 	compatibilityDate: '2025-03-11',
+	modules: ['@nuxtjs/i18n'],
 });

@@ -95,5 +95,9 @@ const load = async () => {
 
 onMounted(async () => {
 	load();
+
+	await pb.collection('weeks').subscribe('*', function (e) {
+    load();
+  }, { /* other options like: filter, expand, custom headers, etc. */ });
 });
 </script>

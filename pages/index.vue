@@ -2,34 +2,36 @@
 	<section class="page">
 		<section class="kevin grid grid-cols-7 gap-3">
 			<div class="col-span-7" v-if="!pb.authStore.isValid">
-				<a href="/register" class="btn btn-primary w-full">Jetzt registrieren</a>
+				<a href="/register" class="btn btn-primary w-full">
+					{{ $t('index.register-now') }}
+				</a>
 			</div>
 			<section class="col-span-7 md:col-span-3 flex mt-3">
 				<section class="grid grid-cols-6">
 					<div class="col-span-6 lg:col-span-2">
-						<img src="https://cdn.jmse.cloud/avatar-2024-modified.png"
-							class="mx-auto md:mx-3 h-24" alt="">
+						<img src="https://cdn.jmse.cloud/avatar-2024-modified.png" class="mx-auto md:mx-3 h-24" alt="">
 					</div>
 					<div class="col-span-6 lg:col-span-4 mt-6 md:mt-0">
 						<div class="text-sm ml-3 bg-white rounded-lg text-black px-3 py-3 text-center">
-							<h3 class="font-bold">Wer bin ich ?</h3>
-							<p>Hi, ich bin Jonathan ein Webentwickler aus der nähe von Köln. Ich entwickel seit 2012
-								Webseite
-								als Hobby und auch als Beruf.</p>
+							<h3 class="font-bold">
+								{{ $t('index.about-me-headline') }}
+							</h3>
+							<p>
+								{{ $t('index.about-me') }}
+							</p>
 							<br>
 						</div>
 					</div>
 				</section>
 			</section>
 			<section class="col-span-7 md:col-span-4">
-				<h2 class="font-bold block text-center text-lg mb-3">Idee hinter der App</h2>
+				<h2 class="font-bold block text-center text-lg mb-3">{{ $t('index.headline') }}</h2>
 
 				<ul class="timeline timeline-vertical">
 					<li>
 						<hr />
 						<div class="timeline-start timeline-box text-center">
-							Auf die Idee hat mich Kevin Chromik mit seinem Video für
-							Streak - Der Habit Tracker App für IOS
+							{{ $t('index.kevin') }}
 						</div>
 
 						<div class="timeline-middle">
@@ -40,12 +42,12 @@
 									clip-rule="evenodd" />
 							</svg>
 						</div>
-						<div class="timeline-end">Februar - 2025</div>
+						<div class="timeline-end">{{ $t('calendar.02') }} - 2025</div>
 						<hr />
 					</li>
 					<li>
 						<hr />
-						<div class="timeline-start">März - 2025</div>
+						<div class="timeline-start">{{ $t('calendar.03') }} - 2025</div>
 						<div class="timeline-middle">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
 								class="h-5 w-5">
@@ -55,7 +57,7 @@
 							</svg>
 						</div>
 						<div class="timeline-end timeline-box">
-							Das habe ich als eine Challenge gesehen das selbe mit einer Web-App umzusetzen.
+							{{ $t('index.challange') }}
 						</div>
 						<hr />
 					</li>
@@ -74,12 +76,11 @@
 					</div>
 				</div>
 				<div class="mr-auto place-self-center lg:col-span-8">
-					<h1 class="max-w-2xl text-center text-white ml-6 mb-4 text-2xl font-extrabold leading-none lg:text-4xl">
-						Habit Streak - by Jonathan Martz</h1>
+					<h1
+						class="max-w-2xl text-center text-white ml-6 mb-4 text-2xl font-extrabold leading-none lg:text-4xl">
+						{{ $t('preview.headline') }}</h1>
 					<p class="max-w-2xl text-center ml-6 mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi distinctio tenetur labore. Eos
-						dolore reiciendis, veniam saepe possimus, aut alias aliquam natus inventore dolorem cupiditate
-						dolores libero illo, ipsam repellat!
+						{{ $t('preview.desc') }}
 					</p>
 					<section
 						class="actions space-x-3 md:space-x-0 flex space-y-3 lg:space-y-0 justify-center flex-col lg:flex-row">
@@ -92,7 +93,7 @@
 								'btn-sm': mobile,
 								'text-xs': mobile
 							}">
-								Github Code
+								{{ $t('link.github-code') }}
 							</span>
 						</a>
 						<a href="/login"
@@ -104,7 +105,7 @@
 								'btn-sm': mobile,
 								'text-xs': mobile
 							}">
-								Zur Webseite
+								{{ $t('link.webapp') }}
 							</span>
 						</a>
 					</section>

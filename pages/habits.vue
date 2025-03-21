@@ -2,7 +2,7 @@
   <section class="page habits">
     <section class="grid grid-cols-6 gap-3">
       <section class="flex justify-between col-span-6">
-        <h2 class="font-bold text-lg">Habits</h2>
+        <h2 class="font-bold text-lg">{{ $t('habits.headline') }}</h2>
         <section class="actions">
           <Fa :icon="faPlusCircle" @click="modalAdd = !modalAdd" class="w-8 cursor-pointer" size="2x" color="white" />
         </section>
@@ -12,36 +12,36 @@
       </section>
       <section v-else class="col-span-6">
         <p class="text-sm font-bold text-white px-3 py-3 text-center border-2 border-white">
-          Es sind noch keine Habits eingetragen.
+          {{ $t('habits.no-habits') }}
         </p>
       </section>
     </section>
     <dialog id="modal_add" class="modal modal-top " :class="{ 'modal-open': modalAdd }">
       <div class="modal-box bg-gray-500 px-6">
         <div class="divider divider-primary font-bold">
-          Habit hinzügen
+          {{ $t('habits.add-habit') }}
         </div>
         <form @submit.prevent="send()">
           <div class="form-control">
-            <label for="" class="label text-sm mb-3 font-bold">Name</label>
+            <label for="" class="label text-sm mb-3 font-bold">{{ $t('label.name') }}</label>
             <input type="text" v-model="form.name" class="input w-full bg-white text-black">
           </div>
           <div class="form-control">
-            <label for="" class="label text-sm mb-3 font-bold">Beschreibung</label>
+            <label for="" class="label text-sm mb-3 font-bold">{{ $t('label.desc') }}</label>
             <input type="text" v-model="form.desc" class="input w-full bg-white text-black">
           </div>
           <section class="actions flex justify-between mt-3">
             <button @click="modalAdd = false" class="btn btn-sm">
-              Close
+              {{ $t('action.close') }}
             </button>
             <button type="submit" class="btn btn-sm btn-primary">
-              Speichern
+              {{ $t('action.save') }}
             </button>
           </section>
         </form>
         <div class="modal-action">
           <form method="dialog" class="modal-backdrop">
-            <button @click="modalAdd = false">close</button>
+            <button @click="modalAdd = false">{{ $t('action.close') }}</button>
           </form>
         </div>
       </div>
