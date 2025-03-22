@@ -5,7 +5,7 @@
     <h2><strong>Vertreten durch:</strong></h2>
     <p>Jonathan Martz<br><br></p>
     <h2><strong>Kontakt:</strong></h2>
-    <p>E-Mail: <a href="mailto:impresum@jmartz.de">impressum@jmartz.de </a><br><br></p>
+    <p>E-Mail: <a href="mailto:impressum@jonathan-martz.de">impressum@jonathan-martz.de </a><br><br></p>
     <h2><strong>Haftungsausschluss:</strong></h2>
     <p><br><br><strong>Haftung für Inhalte</strong><br><br> Die Inhalte unserer Seiten wurden mit größter Sorgfalt
       erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr
@@ -64,5 +64,3 @@
 <script lang="ts" setup>
 
 </script>
-
-<style></style>
