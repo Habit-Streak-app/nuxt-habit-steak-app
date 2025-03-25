@@ -1,12 +1,26 @@
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+	<NuxtLayout>
+		<NuxtPage />
+	</NuxtLayout>
 </template>
 
 <script setup lang="ts">
 import './tailwind.css'
+import { useLocalStorage } from '@vueuse/core';
+import { useI18n } from '#imports';
+
+const { setLocale } = useI18n();
+
+const lang = useLocalStorage('lang', 'de', {});
+
+watch(lang, (value) => {
+	setLocale(value);
+});
+
 onMounted(() => {
+
+	setLocale(lang.value);
+
 	navigator.serviceWorker
 		.register('/service-worker.js')
 		.then((registration) => {
