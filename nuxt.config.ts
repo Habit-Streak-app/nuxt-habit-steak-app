@@ -26,5 +26,9 @@ export default defineNuxtConfig({
 		defaultLocale: 'de'
 	},
 	compatibilityDate: '2025-03-11',
-	modules: ['@nuxtjs/i18n'],
+	plausible: {
+		domain: 'habit-streak.app',
+		apiHost: 'https://tracking.jmse.cloud',
+		ignoredHostnames: ['localhost'],
+	},	modules: ['@nuxtjs/i18n', '@nuxtjs/plausible'],
 });
